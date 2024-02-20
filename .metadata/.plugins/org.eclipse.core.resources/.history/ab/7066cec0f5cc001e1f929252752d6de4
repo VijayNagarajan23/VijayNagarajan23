@@ -1,0 +1,9 @@
+package com.testngfeatures;
+
+import org.testng.annotations.Test;
+
+public class Dataprovider {
+  @Test
+  public void f() {
+  }
+}

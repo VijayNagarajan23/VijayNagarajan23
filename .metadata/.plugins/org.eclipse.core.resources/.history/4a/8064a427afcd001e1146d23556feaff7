@@ -1,0 +1,15 @@
+package com.testngfeatures;
+
+
+import org.testng.annotations.Test;
+
+public class assertnew {
+  @Test
+  public void f() {
+	  String a="Triangle";
+	  String b="Square";
+	  String c="Circle";
+	  Asser
+  }
+  
+}

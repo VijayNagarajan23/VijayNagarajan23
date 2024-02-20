@@ -1,0 +1,65 @@
+package stepdefinition.com;
+
+
+
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+import io.cucumber.java.en.Given;
+	import io.cucumber.java.en.Then;
+	import io.cucumber.java.en.When;
+	import io.github.bonigarcia.wdm.WebDriverManager;
+
+	public class Stepdef {
+		public static WebDriver driver;
+		@Given("user launch the browser")
+		public void user_launch_the_browser() {
+		   WebDriverManager.edgedriver().setup();
+		   driver.manage().window().maximize();
+		   driver.get("https://www.google.com/gmail/about/");
+		}
+		@When("user click on the sign in button")
+		public void user_click_on_the_sign_in_button() throws Throwable {
+			Thread.sleep(2000);
+			WebElement element = driver.findElement(By.xpath("//a[@data-action=\"sign in\"]"));
+			element.click();
+		}
+		@Then("user navigate to login page")
+		public void user_navigate_to_login_page() {
+			String Actual = driver.getCurrentUrl();
+		    String exp = "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=ATuJsjzUAlcqyUVOImf4RseaHaW7B8roR5JRShK52d3MTrBP-EmffGhm96Slla4a2oZMkn9mRc3XzQ&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1643449852%3A1708366674679596&theme=glif";
+		    Assert.assertEquals(Actual, exp);
+		}
+		@Then("user enter the email as {string}")
+		public void user_enter_the_email_as(String string) {
+		   WebElement username = driver.findElement(By.name("identifier"));
+		   username.sendKeys(string);
+		}
+		@When("user click on the next button")
+		public void user_click_on_the_next_button() {
+		  WebElement next = driver.findElement(By.xpath("//div[@class='VfPpkd-RLmnJb']"));
+		  next.click();
+		}
+		@Then("user navigate to the password page")
+		public void user_navigate_to_the_password_page() {
+		  String Actual1 = driver.getCurrentUrl();
+		  String expected = "https://accounts.google.com/v3/signin/challenge/pwd?TL=ADg0xR0VnNYyrGlxvTAg-KaCJsUlvk_bGwpNTS9g_f_dBObB3RYNsKIahAOZHYew&checkConnection=youtube%3A554&checkedDomains=youtube&cid=1&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&dsh=S-1643449852%3A1708366674679596&flowEntry=ServiceLogin&flowName=GlifWebSignIn&ifkv=ATuJsjzUAlcqyUVOImf4RseaHaW7B8roR5JRShK52d3MTrBP-EmffGhm96Slla4a2oZMkn9mRc3XzQ&pstMsg=1&rip=1&service=mail&theme=glif";
+		  Assert.assertEquals(Actual1, expected);
+		}
+		@Then("user enter the password as {string}")
+		public void user_enter_the_password_as(String string) {
+		   driver.findElement(By.name("Passwd"));
+		   
+		}
+		@Then("user navigate to the dashboard page")
+		public void user_navigate_to_the_dashboard_page() {
+		    // Write code here that turns the phrase above into concrete actions
+		    throw new io.cucumber.java.PendingException();
+		}
+
+	}
+
+
+

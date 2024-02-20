@@ -1,0 +1,57 @@
+package com.stepdefinition;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Stepdef {
+	public static WebDriver driver;
+	@Given("user launch the browser")
+	public void user_launch_the_browser() {
+	   WebDriverManager.edgedriver().setup();
+	   driver.manage().window().maximize();
+	   driver.get("https://www.google.com/gmail/about/");
+	}
+	@When("user click on the sign in button")
+	public void user_click_on_the_sign_in_button() throws Throwable {
+		Thread.sleep(2000);
+		WebElement element = driver.findElement(By.xpath("//a[@data-action=\"sign in\"]"));
+		element.click();
+	}
+	@Then("user navigate to login page")
+	public void user_navigate_to_login_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("user enter the email as {string}")
+	public void user_enter_the_email_as(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@When("user click on the next button")
+	public void user_click_on_the_next_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("user navigate to the password page")
+	public void user_navigate_to_the_password_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("user enter the password as {string}")
+	public void user_enter_the_password_as(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("user navigate to the dashboard page")
+	public void user_navigate_to_the_dashboard_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+}

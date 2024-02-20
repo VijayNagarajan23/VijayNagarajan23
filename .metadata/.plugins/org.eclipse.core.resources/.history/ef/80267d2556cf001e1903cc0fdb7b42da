@@ -1,0 +1,20 @@
+Feature: Gmail Application
+
+
+Scenario Outline: To Verify the login functionality of the application
+Given user launch the browser
+When user click on the sign in button
+Then user navigate to login page
+And user enter the email as "<email>"
+When user click on the next button
+Then user navigate to the password page
+And user enter the password as "<password>"
+When user click on the next button 
+Then user navigate to the dashboard page
+
+
+Examples:
+        
+        | email |               | password |
+        | vijayarcade3@gmail.com| Vijay564+|
+        | vijayarcade2@gmail.com| Vijay564+|
